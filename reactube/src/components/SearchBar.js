@@ -1,9 +1,7 @@
 import React from "react";
 
 class SearchBar extends React.Component {
-  state = {
-    term: ""
-  };
+  state = { term: "" };
 
   onFormSubmit = event => {
     event.preventDefault();
@@ -18,13 +16,11 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="ui segment" style={{ marginTop: "10px" }}>
-        <form
-          className="ui form"
-          onSubmit={this.onFormSubmit}
-        >
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Video Search</label>
-            <input className="input massive fluid"
+            <input
+              className="input massive fluid"
               value={this.state.term}
               type="text"
               onChange={this.onInputChange}
