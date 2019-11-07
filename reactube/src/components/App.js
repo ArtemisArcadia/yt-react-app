@@ -1,16 +1,15 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-import axios from 'axios';
+import axios from "axios";
 
 class App extends React.Component {
-  state = {term: ""};
+  state = { term: "" };
 
-  onSubmit = (term) => {
-      
-      this.setState({term: term });
-     console.log(this.state.term);
+  onSubmit = term => {
+    this.setState({ term: term });
+    console.log(this.state.term);
 
-     return;
+    return;
   };
 
   render() {
