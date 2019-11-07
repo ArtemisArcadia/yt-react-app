@@ -10,10 +10,10 @@ class SearchBar extends React.Component {
 
   onInputChange = event => {
     this.setState({ term: event.target.value });
-    console.log(this.state.term);
   };
 
   render() {
+    console.log(this.state.term);
     return (
       <div className="ui segment" style={{ marginTop: "10px" }}>
         <form className="ui form" onSubmit={this.onFormSubmit}>
