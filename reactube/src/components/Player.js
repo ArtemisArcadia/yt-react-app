@@ -14,7 +14,7 @@ const Player = ({ video }) => {
 			</div>
 			<div className="ui segment">
 				<h4 className="ui header huge"> {video.snippet.title} </h4>{" "}
-				<p className="ui description">{video.snippet.description}</p>
+				<p className="ui description large">{video.snippet.description}</p>
 			</div>
 		</div>
 	);

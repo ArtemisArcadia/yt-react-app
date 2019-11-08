@@ -13,7 +13,10 @@ class App extends React.Component {
 				q: term
 			}
 		});
-		this.setState({ videolist: response.data.items });
+		this.setState({
+			videolist: response.data.items,
+			selectedVideo: response.data.items[0]
+		});
 	};
 
 	videoSelected = selectedvid => {
@@ -21,16 +24,33 @@ class App extends React.Component {
 		this.setState({ selectedVideo: selectedvid });
 	};
 
+	componentDidMount() {
+		this.onTermSubmit("awesome");
+	}
+
 	render() {
 		console.log(this.state.selectedVideo);
 		return (
-			<div className="ui container">
-				<SearchBar onTermSubmit={this.onTermSubmit} />
-				<Player video={this.state.selectedVideo} />
-				<VideoList
-					videolist={this.state.videolist}
-					videoSelected={this.videoSelected}
-				/>
+			<div className="ui">
+				<div className="ui container">
+					<SearchBar onTermSubmit={this.onTermSubmit} />
+				</div>
+
+				<div style={{ marginTop: "20px" }}>
+					<div className="ui centered grid">
+						<div className="ui row">
+							<div className="ten wide column">
+								<Player video={this.state.selectedVideo} />
+							</div>
+							<div className="four wide column">
+								<VideoList
+									videolist={this.state.videolist}
+									videoSelected={this.videoSelected}
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}

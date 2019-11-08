@@ -10,13 +10,10 @@ const VideoItem = props => {
 			<img
 				className="ui middle aligned image"
 				src={props.content.snippet.thumbnails.high.url}
-				alt=""
+				alt={props.content.snippet.title}
 			></img>
 			<div className="content">
-				<div className="header huge  ui"> {props.content.snippet.title} </div>
-				<div className="description ui medium">
-					{props.content.snippet.description}{" "}
-				</div>
+				<div className="header ui"> {props.content.snippet.title} </div>
 			</div>
 		</div>
 	);
