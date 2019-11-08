@@ -1,24 +1,27 @@
 import React from "react";
 import SearchBar from "./SearchBar";
-import axios from "axios";
+import youtube from "../apis/Youtube";
 
 class App extends React.Component {
-  state = { term: "" };
+	state = { videolist: [] };
 
-  onSubmit = term => {
-    this.setState({ term: term });
-    console.log(this.state.term);
+	onTermSubmit = async term => {
+		const response = await youtube.get("/search", {
+			params: {
+				q: term
+			}
+		});
+		this.setState({ videolist: response.data.items });
+	};
 
-    return;
-  };
-
-  render() {
-    return (
-      <div className="ui container">
-        <SearchBar onSubmit={this.onSubmit} />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="ui container">
+				<SearchBar onTermSubmit={this.onTermSubmit} />I have found{" "}
+				{this.state.videolist.length} videos
+			</div>
+		);
+	}
 }
 
 export default App;
