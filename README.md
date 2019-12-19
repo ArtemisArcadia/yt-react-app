@@ -1,3 +1,2 @@
-This app will include components that will take a users' search term, and display a video using YTs API; as well as video suggestions in a list, to the side of the video.
-
-tl:dr : A YouTube app in React
+# This is a YouTube app made in React.js:
+View a demonstration of this app at : https://osmanabdulmoomin.github.io/reactube/
